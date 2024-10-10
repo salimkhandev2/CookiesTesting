@@ -4,7 +4,7 @@ const CookieButton = () => {
     const handleSetCookie = async () => {
         try {
             // Replace 'Your Value Here' with the actual value you want to store
-            const response = await fetch('http://localhost:3000/set-cookie', {
+            const response = await fetch('https://cookies-testing-rkra.vercel.app/set-cookie', {
                 method: 'POST',
                 credentials: 'include',
                
