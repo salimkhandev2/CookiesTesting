@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors({
     origin: 'https://cookies-testing.vercel.app',
+    
     credentials: true
 }));
 
@@ -27,6 +28,8 @@ app.post('/set-cookie', (req, res) => {
     });
     res.json({ message: 'Cookie set successfully!' });
 });
+// Get the value of the cookie
+    
 
 // Start the server
 app.listen(PORT, () => {
