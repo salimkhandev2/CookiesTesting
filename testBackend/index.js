@@ -7,7 +7,6 @@ const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 app.use(cors({
     origin: 'https://cookies-testing.vercel.app',
-    
     credentials: true
 }));
 
@@ -22,14 +21,12 @@ app.post('/set-cookie', (req, res) => {
    let value="Salim Khan" // Get the value from the request body
     res.cookie('myCookie', value, {
         httpOnly: true, // Cookie cannot be accessed via JavaScript
-        secure: true, // Use secure cookies in production
+        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
         sameSite: 'Lax', // CSRF protection
         maxAge: 3600000 // 1 hour
     });
     res.json({ message: 'Cookie set successfully!' });
 });
-// Get the value of the cookie
-    
 
 // Start the server
 app.listen(PORT, () => {
