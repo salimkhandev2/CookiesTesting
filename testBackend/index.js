@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 // use cors
 const cors = require('cors');
 app.use(cors({
-    origin: 'https://cookies-testing-rkra.vercel.app',
+    origin: 'https://cookies-testing.vercel.app',
     credentials: true
 }));
 
