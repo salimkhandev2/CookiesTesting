@@ -18,15 +18,16 @@ app.use(cookieParser());
 
 app.post('/set-cookie', (req, res) => {
  
-   let value="SalimKhan"; // Get the value from the request body
-    res.cookie('myCookie', value, {
-        httpOnly: true,
-    // Exact domain of your frontend
-// Cookie cannot be accessed via JavaScript
- // CSRF protection
-        maxAge: 3600000 // 1 hour
-    });
-    res.json({ message: 'Cookie set successfully saved salim khan again no sir !' });
+   let token="SalimKhan"; // Get the value from the request body
+ res.cookie('adminToken', token, {
+    httpOnly: true,          // Cannot be accessed via JavaScript
+    secure: true,            // Must be sent over HTTPS
+    sameSite: 'none',        // Allows cross-origin cookies
+    domain: 'cookies-testing-bice.vercel.app', // Backend domain
+    maxAge: 3600000          // 1 hour
+});
+
+    res.json({ message: 'Cookie set the res json works on console ?' });
 });
 
 // Start the server
