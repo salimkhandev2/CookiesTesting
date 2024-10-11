@@ -18,14 +18,14 @@ app.use(cookieParser());
 
 app.post('/set-cookie', (req, res) => {
  
-   let value="Salim Khan" // Get the value from the request body
+   let value="Salim Khan"; // Get the value from the request body
     res.cookie('myCookie', value, {
         httpOnly: true, // Cookie cannot be accessed via JavaScript
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        secure:true, // Use secure cookies in production
         sameSite: 'Lax', // CSRF protection
         maxAge: 3600000 // 1 hour
     });
-    res.json({ message: 'Cookie set successfully!' });
+    res.json({ message: 'Cookie set successfully saved salim khan!' });
 });
 
 // Start the server
