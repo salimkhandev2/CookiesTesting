@@ -20,7 +20,9 @@ app.post('/set-cookie', (req, res) => {
  
    let value="SalimKhan"; // Get the value from the request body
     res.cookie('myCookie', value, {
-        httpOnly: true, // Cookie cannot be accessed via JavaScript
+        httpOnly: true,
+          domain: 'cookies-testing-frontend.vercel.app',  // Exact domain of your frontend
+// Cookie cannot be accessed via JavaScript
         secure:true, // Use secure cookies in production
         sameSite: 'None', // CSRF protection
         maxAge: 3600000 // 1 hour
